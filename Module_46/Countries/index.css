@@ -1,0 +1,28 @@
+.SingleCountries{
+    border: 2px solid red;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.countries{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.SingleCountries img{
+    width: 150px;
+   
+    }
+.btn{
+   width: 100px;
+   margin-top: 4px;
+   background-color: blueviolet;
+   padding: 2px;
+   border-radius: 3px;
+   border-style: none;
+}
+.bt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
