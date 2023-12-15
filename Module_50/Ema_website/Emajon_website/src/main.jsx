@@ -12,6 +12,7 @@ import {Orders} from "../src/Components/Orders/Orders.jsx";
 import {Inventery} from  "../src/Components/Inventory/Inventery.jsx";
 import {LogIn} from  "../src/Components/LogIn/LogIn.jsx";
 import cartProductsLoader from './Components/CustomeLoader/CustomeCartProductsLoader.js';
+import { CheckOut } from './Components/CheckOut/CheckOut.jsx';
 
 
 const router=createBrowserRouter([
@@ -21,11 +22,16 @@ const router=createBrowserRouter([
    children:[
     {
       path:'/',
-      element:<Shop></Shop>
+      element:<Shop></Shop>,
+      loader:()=>fetch(`http://localhost:5000/totalProductsCount`)
     },{
       path:'/order',
       element:<Orders/>,
       loader:cartProductsLoader
+    },
+    {
+    path:'/checkout',
+    element:<CheckOut></CheckOut>
     },
     {
      path:'/inventory',

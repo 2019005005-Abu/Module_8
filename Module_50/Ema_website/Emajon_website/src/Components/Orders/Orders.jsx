@@ -3,16 +3,24 @@ import {Cart} from "../Cart/Cart.jsx";
 import "../../Components/Shop/Shop.css"
 import { useLoaderData } from 'react-router-dom';
 import { ReviewItem } from '../ReviewItem/ReviewItem.jsx';
-import { removeFromDb } from '../../assets/utilities/fakedb.js';
+import { deleteShoppingCart, removeFromDb } from '../../assets/utilities/fakedb.js';
+import {Link} from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
 
 export const Orders = () => {
   const SaveCart=useLoaderData();
   const[cart,SetCart]=useState(SaveCart);
   const HandleRemoveFrom_Cart=(id)=>{
     console.log(id);
-    const remaing=cart.filter(product=>product.id !==id);
+    const remaing=cart.filter(product=>product._id !==id);
     SetCart(remaing);
     removeFromDb(id)
+  }
+
+  const handleClearCart=()=>{
+    SetCart([]);
+    deleteShoppingCart()
   }
   return (
     <div className='shop-containers'>
@@ -22,7 +30,7 @@ export const Orders = () => {
              {
               cart.map(function(product){
               return <ReviewItem product={product} 
-              key={product.id}
+              key={product._id}
               HandleRemoveFrom_Cart={HandleRemoveFrom_Cart}
               />
               })
@@ -30,7 +38,14 @@ export const Orders = () => {
           </div>
        </div>
        <div className='card-container'>
-         <Cart cart={cart}/>
+         <Cart cart={cart} clearCart={handleClearCart}>
+            <Link to='/checkout' className='LinkStyle_button'>
+             <button className='button_proced'>
+              <p>Proced to CheckOut</p>
+               <FontAwesomeIcon icon={faCartShopping}/>
+              </button>
+            </Link>
+         </Cart>
        </div>
     </div>
   )

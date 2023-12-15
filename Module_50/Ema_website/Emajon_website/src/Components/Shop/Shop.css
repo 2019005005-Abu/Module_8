@@ -28,3 +28,58 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.button_proced{
+ width: 185px;
+ margin-top: 10px;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ border: none;
+ padding: 5px;
+ border-radius: 5px;
+ background-color: blueviolet;
+ color: aqua;
+ font-size: 10px;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-between;
+
+}
+.LinkStyle_button{
+    text-decoration: none;
+}
+.button_proced:hover{
+    background-color: cadetblue;
+    color: black;
+    font-weight: bolder;
+}
+
+.review_order{
+    width: 185px;
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: indigo;
+    color: violet;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.LinkStyle_button{
+    text-decoration: none;
+}
+.review_order:hover{
+    background-color:indianred;
+    color: black;
+    font-weight: bolder;
+}
+
+.pagination .s{
+    background-color: yellow;
+    color: black;
+}
